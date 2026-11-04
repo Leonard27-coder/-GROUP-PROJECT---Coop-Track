@@ -1,6 +1,4 @@
-﻿// CoopTrack frontend - dashboard and cooperative records
-"use strict";
-
+﻿
 const $ = (id) => document.getElementById(id);
 const members = [];
 const tasks = [];
@@ -28,7 +26,7 @@ async function api(url, options = {}) {
   }
 
   if (!response.ok) {
-    throw new Error(data.error || data.message || `HTTP ${response.status}`);
+    throw new Error(data.error || data.message || HTTP ${response.status});
   }
   return data;
 }
@@ -62,7 +60,7 @@ function showSection(name) {
   });
 
   document.querySelectorAll(".nav-link").forEach((link) => {
-    link.classList.toggle("active", link.getAttribute("href") === `#${name}`);
+    link.classList.toggle("active", link.getAttribute("href") === #${name});
   });
 
   const titles = {
@@ -86,30 +84,31 @@ function navigate() {
 
 async function loadDashboard() {
   try {
-    const [m, t, c, s] = await Promise.all([
+    const [m, t, c] = await Promise.all([
       api("/api/members"),
       api("/api/tasks"),
       api("/api/contributions"),
-      api("/api/support"),
     ]);
 
     setCount("member-count", m.length);
     setCount("task-count", t.length);
-    setCount(
-      "pending-count",
-      t.filter(
-        (task) =>
-          !["completed", "complete", "done"].includes(
-            String(task.progress || task.status || "").toLowerCase(),
-          ),
-      ).length,
-    );
+
+    const pending = t.filter((task) => {
+      const progress = String(
+        task.progress || task.status || "Pending"
+      ).toLowerCase();
+
+      return !["completed", "complete", "done"].includes(progress);
+    });
+
+    setCount("pending-count", pending.length);
     setCount("record-count", c.length);
-    setCount("support-count", s.length);
+
   } catch (error) {
     console.error("Dashboard loading failed:", error);
   }
 }
+
 
 function updateMemberDropdowns() {
   ["task-assignee", "record-member", "support-member"].forEach((id) => {
@@ -122,7 +121,7 @@ function updateMemberDropdowns() {
       members
         .map(
           (member) =>
-            `<option value="${safe(member.id)}">${safe(member.name)}</option>`,
+            <option value="${safe(member.id)}">${safe(member.name)}</option>,
         )
         .join("");
 
@@ -333,8 +332,8 @@ function bindForm(id, handler) {
         loadInvitations(),
       ]);
     } catch (error) {
-      console.error(`${id} submission failed:`, error);
-      notify(`Could not save record: ${error.message}`);
+      console.error(${id} submission failed:, error);
+      notify(Could not save record: ${error.message});
     } finally {
       if (button) button.disabled = false;
     }
@@ -402,7 +401,7 @@ bindForm("invitation-form", async (data) => {
     }),
   });
   notify(
-    `Invitation created.\nKey: ${result.key || "Check the invitation list"}`,
+    Invitation created.\nKey: ${result.key || "Check the invitation list"},
   );
 });
 
@@ -425,5 +424,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadSupport();
   await loadInvitations();
 });
-
-
