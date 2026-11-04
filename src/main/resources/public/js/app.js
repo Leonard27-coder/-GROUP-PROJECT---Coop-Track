@@ -1,4 +1,5 @@
 
+
 const $ = (id) => document.getElementById(id);
 const members = [];
 const tasks = [];
@@ -424,3 +425,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadSupport();
   await loadInvitations();
 });
+
