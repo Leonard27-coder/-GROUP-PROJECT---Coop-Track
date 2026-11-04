@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -359,7 +359,144 @@
     
     
 
-      <footer class="page-footer">
+      
+<!-- CONTRIBUTIONS PAGE -->
+<section id="contributions" class="page-section">
+  <div class="section-intro">
+    <div>
+      <p class="eyebrow">COOPERATIVE RECORDS</p>
+      <h2>Member contributions</h2>
+      <p>Record and monitor contributions made by cooperative members.</p>
+    </div>
+  </div>
+
+  <div class="content-panel">
+    <p class="eyebrow">NEW CONTRIBUTION</p>
+    <h2>Record a contribution</h2>
+    <form id="record-form">
+      <div class="form-group">
+        <label for="record-member">Member</label>
+        <select id="record-member" name="memberId" required>
+          <option value="">Select a member</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="record-type">Contribution type</label>
+        <input id="record-type" name="type" type="text" placeholder="e.g. Money, labour, materials" required>
+      </div>
+      <div class="form-group">
+        <label for="record-description">Description</label>
+        <input id="record-description" name="description" type="text" placeholder="Describe the contribution" required>
+      </div>
+      <div class="form-group">
+        <label for="record-amount">Amount or quantity</label>
+        <input id="record-amount" name="amount" type="text" placeholder="e.g. 500 or 5 bags">
+      </div>
+      <button type="submit" class="primary-button">Save contribution</button>
+    </form>
+  </div>
+
+  <div class="content-panel">
+    <p class="eyebrow">CONTRIBUTION HISTORY</p>
+    <h2>Recorded contributions</h2>
+    <div class="table-container">
+      <table>
+        <thead><tr><th>Type</th><th>Member</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody id="record-list">
+          <tr><td colspan="4" class="empty">No contributions recorded yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER SUPPORT PAGE -->
+<section id="support" class="page-section">
+  <div class="section-intro">
+    <div>
+      <p class="eyebrow">MEMBER WELLBEING</p>
+      <h2>Member support</h2>
+      <p>Document financial and material assistance provided to members.</p>
+    </div>
+  </div>
+
+  <div class="content-panel">
+    <p class="eyebrow">NEW SUPPORT RECORD</p>
+    <h2>Record member support</h2>
+    <form id="support-form">
+      <div class="form-group">
+        <label for="support-member">Member</label>
+        <select id="support-member" name="memberId" required>
+          <option value="">Select a member</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="support-type">Support type</label>
+        <input id="support-type" name="type" type="text" placeholder="e.g. Financial, materials" required>
+      </div>
+      <div class="form-group">
+        <label for="support-description">Description</label>
+        <input id="support-description" name="description" type="text" placeholder="Describe the support provided" required>
+      </div>
+      <div class="form-group">
+        <label for="support-amount">Amount or quantity</label>
+        <input id="support-amount" name="amount" type="text" placeholder="e.g. 300 or 2 bags">
+      </div>
+      <button type="submit" class="primary-button">Save support record</button>
+    </form>
+  </div>
+
+  <div class="content-panel">
+    <p class="eyebrow">SUPPORT HISTORY</p>
+    <h2>Recorded support</h2>
+    <div class="table-container">
+      <table>
+        <thead><tr><th>Member</th><th>Support type</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody id="support-list">
+          <tr><td colspan="4" class="empty">No support records added yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- INVITATION KEYS PAGE -->
+<section id="invitations" class="page-section">
+  <div class="section-intro">
+    <div>
+      <p class="eyebrow">MEMBER ACCESS</p>
+      <h2>Invitation keys</h2>
+      <p>Create and manage keys for inviting new cooperative members.</p>
+    </div>
+  </div>
+
+  <div class="content-panel">
+    <p class="eyebrow">NEW INVITATION</p>
+    <h2>Generate an invitation key</h2>
+    <form id="invitation-form">
+      <div class="form-group">
+        <label for="invitation-note">Purpose or note</label>
+        <input id="invitation-note" name="note" type="text" placeholder="e.g. New cooperative membership">
+      </div>
+      <button type="submit" class="primary-button">Generate invitation key</button>
+    </form>
+  </div>
+
+  <div class="content-panel">
+    <p class="eyebrow">INVITATION RECORDS</p>
+    <h2>Generated invitation keys</h2>
+    <div class="table-container">
+      <table>
+        <thead><tr><th>Invitation key</th><th>Purpose</th><th>Status</th></tr></thead>
+        <tbody id="invitation-list">
+          <tr><td colspan="3" class="empty">No invitation keys available yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
         <span>CoopTrack © 2026</span>
         <span>Manage. Collaborate. Grow.</span>
       </footer>

@@ -774,3 +774,28 @@ th {
     gap: 9px;
   }
 }
+/* COOPTRACK TABLE AND FORM IMPROVEMENTS */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.content-panel form {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  max-width: 650px;
+}
+
+.content-panel form .primary-button {
+  justify-self: start;
+}
+
+.page-section {
+  animation: sectionFade .2s ease;
+}
+
+@keyframes sectionFade {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
